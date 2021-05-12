@@ -372,7 +372,7 @@ class Ipn extends Action implements CsrfAwareActionInterface {
             //build method creates the transaction and returns the object
             ->build(\Magento\Sales\Model\Order\Payment\Transaction::TYPE_CAPTURE);
         $payment->addTransactionCommentsToOrder($transaction, $this->_objPmReq->objPmNotify->errorMessage . " - Accepted by NETOPIA Payments - ");
-        $this->_order->setStatus(Order::STATE_PROCESSING);
+        $this->_order->setStatus(Order::STATE_COMPLETE);
         $this->_order->save();
     }
 
